@@ -1,11 +1,15 @@
 <template>
     <div>
         <!--show loading while we are getting the details-->
-        <div style="text-align: center;" v-if="venue == null">
-            <h3 class="title is-3">
-                <i class="fas fa-spin fa-circle-notch"></i> <br>
-                Getting more info about this location, hang tight!
-            </h3>
+        <div class="container" v-if="venue == null">
+            <div class="section">
+                <div style="text-align: center;">
+                    <h3 class="title is-3">
+                        <i class="fas fa-spin fa-circle-notch"></i> <br>
+                        Getting more info about this location, hang tight!
+                    </h3>
+                </div>
+            </div>
         </div>
         <div v-else>
             <section class="hero is-small is-primary is-bold">
@@ -16,10 +20,12 @@
                                     class="fas fa-arrow-left"></i></a>
                             {{venue.name}}
                             <a v-show="user !== null && !userHasFavouritedVenue" @click.prevent.stop="addVenueForUser"
+                               title="Add to Favorites"
                                href="">
                                 <i class="far fa-star"></i>
                             </a>
                             <a v-show="user !== null && userHasFavouritedVenue === true"
+                               title="Remove from Favorites"
                                @click.prevent.stop="removeVenueForUser" href="" class="has-text-warning">
                                 <i class="fas fa-star"></i>
                             </a>
@@ -140,7 +146,16 @@
                 imageModalSource: null
             }
         },
+        watch: {
+            id(newId, oldId) {
+                if (newId !== oldId)
+                    this.getVenue(); // if the id changes, we need to retrieve the new venue by id
+            }
+        },
         computed: {
+            id() {
+                return this.$route.params.id;
+            },
             venue() {
                 return this.$store.state.venue;
             },
