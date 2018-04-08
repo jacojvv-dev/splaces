@@ -101,7 +101,13 @@ class Foursquare
     {
         $params = $this->getParams();
         $url = $id . $params;
-        $response = $this->client->request('GET', $url);
+
+        $response = null;
+        try {
+            $response = $this->client->request('GET', $url);
+        } catch (\Exception $ex) {
+            return null;
+        }
 
         $decoded = json_decode($response->getBody());
         if (isset($decoded->response) && isset($decoded->response->venue))

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -19,6 +20,19 @@ class BasicHttpTest extends TestCase
     {
         $response = $this->get('/register');
         $response->assertStatus(200);
+    }
+
+
+    public function testRegisterPost()
+    {
+        $data = [
+            'name' => 'Fake',
+            'email' => 'fake@fake22222.com',
+            'password' => 'password'
+        ];
+
+        $response = $this->call('POST', '/register', $data);
+        $response->assertStatus(302);
     }
 
     public function testGetLogin()

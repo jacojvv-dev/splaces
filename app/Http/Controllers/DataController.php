@@ -135,8 +135,12 @@ class DataController extends Controller
      * Retrieves the current user
      * @return mixed
      */
+
     public function user()
     {
+        if (!request()->user())
+            return request()->user();
+
         return UserRepository::find(request()->user()->id);
     }
 
