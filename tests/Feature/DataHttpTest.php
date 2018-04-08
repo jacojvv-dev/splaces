@@ -146,12 +146,6 @@ class DataHttpTest extends TestCase
     public function testGetVenueFailsWithBonkersId()
     {
         $response = $this->get('/data/venue/4b93823cf964a5206b4634e3_look_at_my_horse');
-        // echo $response->getContent();
-
-        $fp = fopen('report/___custom_error___.html', 'w');
-        fwrite($fp, $response->getContent());
-        fclose($fp);
-
         $response->assertStatus(404);
     }
 
