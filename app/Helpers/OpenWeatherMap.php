@@ -2,13 +2,10 @@
 
 namespace App\Helpers;
 
-
 use GuzzleHttp\Client;
 
 class OpenWeatherMap
 {
-
-
     private $key;
     private $client;
 
@@ -21,7 +18,6 @@ class OpenWeatherMap
 
         $this->key = env('OPEN_WEATHER_MAP_API_KEY');
     }
-
 
     /**
      * @param array $params
@@ -36,7 +32,11 @@ class OpenWeatherMap
         return $p;
     }
 
-
+    /**
+     * Retrieves weather for a location query
+     * @param $search
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function getWeatherForSearch($search)
     {
         // check if it is a coord
@@ -49,13 +49,10 @@ class OpenWeatherMap
             return $this->client->get($p)->getBody();
         }
 
-
         $p = $this->getParams([
             'q' => $search
         ]);
 
         return $this->client->get($p)->getBody();
     }
-
-
 }

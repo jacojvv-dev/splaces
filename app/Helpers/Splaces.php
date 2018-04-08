@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jaco
- * Date: 2018/04/07
- * Time: 3:35 PM
- */
 
 namespace App\Helpers;
-
 
 class Splaces
 {

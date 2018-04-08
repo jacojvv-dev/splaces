@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jaco
- * Date: 2018/04/07
- * Time: 9:16 PM
- */
 
 namespace App\DAL;
-
 
 use App\VenueView;
 
@@ -39,6 +32,7 @@ class VenueViewRepository
         // might not always return 25  because of the unique filter
         // on the collection, but it's easier than trying to to a groupby count while
         // ordering by date created
+        /** @noinspection PhpDynamicAsStaticMethodCallInspection */
         $items = VenueView::orderBy('created_at', 'DESC')->skip(0)->take(25)->get();
         $unique = $items->unique('venue_id');
         return $unique->values()->all();

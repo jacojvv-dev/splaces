@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jaco
- * Date: 2018/04/07
- * Time: 10:27 PM
- */
 
 namespace App\DAL;
-
 
 use App\User;
 use App\UserVenue;

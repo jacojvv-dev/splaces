@@ -48,9 +48,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Saves user venues
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function venues()
     {
         return $this->hasMany('App\UserVenue');
     }
-
 }

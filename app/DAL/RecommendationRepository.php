@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jaco
- * Date: 2018/04/07
- * Time: 10:38 AM
- */
 
 namespace App\DAL;
-
 
 use App\Recommendation;
 
@@ -22,6 +15,7 @@ class RecommendationRepository
      */
     public static function find($location, $section, $query)
     {
+        /** @noinspection PhpDynamicAsStaticMethodCallInspection */
         return Recommendation::where([
             ['location', '=', $location],
             ['section', '=', $section],
@@ -39,13 +33,7 @@ class RecommendationRepository
      */
     public static function store($location, $section, $query, $data)
     {
-        // get or create the recommendation
-        $recommendation = Recommendation::where([
-            ['location', '=', $location],
-            ['section', '=', $section],
-            ['query', '=', $query]
-        ])->orderBy('id', 'DESC')->first();
-
+        $recommendation = RecommendationRepository::find($location, $section, $query);
         if ($recommendation == null) {
             $recommendation = new Recommendation([
                 'location' => $location,

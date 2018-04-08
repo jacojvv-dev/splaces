@@ -21,7 +21,6 @@ class Foursquare
         $this->secret = env('FOURSQUARE_CLIENT_SECRET');
     }
 
-
     /**
      * @param array $params
      * @return string
@@ -76,8 +75,6 @@ class Foursquare
      */
     public function getVenueRecommendations($location, $section = null, $query = null)
     {
-
-
         $params = $this->getParams([
             'near' => $location,
             'venuePhotos' => 1,
@@ -89,7 +86,6 @@ class Foursquare
         $response = $this->client->request('GET', $url);
         return $this->parseRecommendationResponse($response->getBody());
     }
-
 
     /**
      * Retrieves a venue by id
@@ -115,6 +111,4 @@ class Foursquare
         else
             return null;
     }
-
-
 }

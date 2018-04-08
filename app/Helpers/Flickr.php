@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Helpers;
-
 
 use GuzzleHttp\Client;
 
@@ -37,6 +35,7 @@ class Flickr
     }
 
     /**
+     * Get photos for a query
      * @param $location
      * @return mixed|null
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -61,6 +60,4 @@ class Flickr
         $response = trim($response, "()");
         return $response;
     }
-
-
 }

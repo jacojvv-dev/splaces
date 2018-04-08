@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jaco
- * Date: 2018/04/07
- * Time: 8:49 PM
- */
 
 namespace App\DAL;
-
 
 use App\Search;
 use Carbon\Carbon;
@@ -51,7 +44,7 @@ class SearchRepository
      */
     public static function latest()
     {
+        /** @noinspection PhpDynamicAsStaticMethodCallInspection */
         return Search::orderBy('searched_on', 'DESC')->skip(0)->take(25)->get();
     }
-
 }
