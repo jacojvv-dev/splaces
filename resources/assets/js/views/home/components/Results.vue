@@ -147,12 +147,8 @@
         },
         methods: {
             viewPhoto(photo) {
-                console.log(photo);
-
                 this.imageModalPhoto = photo;
                 this.imageModalActive = true;
-
-
             }
         }
     }

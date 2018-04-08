@@ -2,7 +2,7 @@ import axios from 'axios';
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex';
-import Buefy from 'buefy'
+import Buefy from 'buefy/';
 
 window.axios = axios;
 window.Vue = Vue;
@@ -21,7 +21,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * all outgoing HTTP requests automatically have it attached. This is just
  * a simple convenience so we don't have to attach every token manually.
  */
-
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
@@ -31,7 +30,6 @@ if (token) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -53,5 +51,4 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-
 });

@@ -28,9 +28,13 @@
         <div class="navbar-menu" id="navMenu">
             {{--home button--}}
             <div class="navbar-start">
-                <router-link to="/" class="navbar-item">
-                    {{ config('app.name', 'Splaces') }}
-                </router-link>
+                @if(last(request()->segments()) === false)
+                    <router-link to="/" class="navbar-item" exact>
+                        {{ config('app.name', 'Splaces') }}
+                    </router-link>
+                @else
+                    <a class="navbar-item" href="{{url('/')}}">Splaces</a>
+                @endif
             </div>
 
             {{--login and profile section--}}

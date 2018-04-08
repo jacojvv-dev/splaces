@@ -176,7 +176,6 @@
             },
             getLatestSearches() {
                 API.getLatestSearches().then(res => {
-                    console.log(res);
                     this.latestSearches = res.data;
                 }).catch(err => {
                     console.log(err);
@@ -184,7 +183,6 @@
             },
             getLatestVenueViews() {
                 API.getLatestVenueViews().then(res => {
-                    console.log(res);
                     this.latestVenueViews = res.data;
                 }).catch(err => {
                     console.log(err);

@@ -131,7 +131,6 @@
         name: 'Venue',
         mounted() {
             let id = this.$route.params.id;
-            console.log(id);
             if (!this.venue || this.venue.id !== id)
                 this.getVenue();
         },
@@ -196,7 +195,6 @@
             addVenueForUser() {
                 let {id, name} = this.venue;
                 API.addUserVenue(id, name).then(res => {
-                    console.log(res);
                     if (res && res.data && res.data.id)
                         this.$store.commit('updateUser', res.data);
                 }).catch(err => {
@@ -206,7 +204,6 @@
             removeVenueForUser() {
                 let {id} = this.venue;
                 API.removeUserVenue(id).then(res => {
-                    console.log(res);
                     if (res && res.data && res.data.id)
                         this.$store.commit('updateUser', res.data);
                 }).catch(err => {

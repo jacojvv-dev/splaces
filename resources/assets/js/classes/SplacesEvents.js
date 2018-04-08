@@ -1,4 +1,8 @@
 export default class SplacesEvents {
+    /**
+     * Dispatched a city selected event on the window object
+     * @param city
+     */
     static dispatchCitySelectedEvent(city) {
         let ev = new CustomEvent("citySelected",
             {

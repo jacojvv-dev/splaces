@@ -193,9 +193,6 @@
 
                 // execute the weather query
                 API.getWeather(location).then(res => {
-                    console.log('weather');
-                    console.log(res);
-
                     this.$store.commit('updateWeather', res.data);
                 }).catch(err => {
                     console.log(err);
@@ -203,9 +200,6 @@
                 });
 
                 API.getPhotos(location).then(res => {
-                    console.log('photos');
-                    console.log(res);
-
                     this.$store.commit('updatePhotos', res.data);
                 }).catch(err => {
                     console.log(err);

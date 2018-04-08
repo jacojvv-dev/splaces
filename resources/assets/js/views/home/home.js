@@ -33,14 +33,10 @@ const app = new Vue({
     },
     mounted() {
         API.getUser().then(res => {
-            console.log('user');
-            console.log(res);
-
             if (res.data !== "")
                 this.$store.commit('updateUser', res.data);
         }).catch(err => {
             console.log(err);
         });
     }
-
 });
