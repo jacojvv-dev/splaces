@@ -45,6 +45,12 @@ If you want to have code coverage output, please install [xdebug](https://xdebug
 > composer run tests
 ```
 
+## Generating IDE Helper Documentation/Files
+
+```bash
+> composer generate-helper-docs
+```
+
 ## Licenses
 
 Splaces is licenced under [WTFPL (Do What the Fuck You Want To Public License)](http://www.wtfpl.net/about/)
