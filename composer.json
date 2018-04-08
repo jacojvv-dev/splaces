@@ -65,10 +65,7 @@
     ],
     "run-setup": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-      "composer install",
-      "composer generate-helper-docs",
-      "npm install",
-      "npm run production"
+      "composer install"
     ]
   },
   "config": {
